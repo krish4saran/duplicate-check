@@ -57,4 +57,17 @@ public class DuplicateCheckApplicationTests {
 		thrown.expectMessage("Please provide valid values");
 		duplicateCheckService.isDuplicate("");
 	}
+	
+	@Test
+	public void testDuplicateCheckForMultipleWords(){
+		
+		assertFalse(duplicateCheckService.isDuplicate("Hello"));
+		assertFalse(duplicateCheckService.isDuplicate("My"));
+		assertFalse(duplicateCheckService.isDuplicate("name"));
+		assertFalse(duplicateCheckService.isDuplicate("is"));
+		assertFalse(duplicateCheckService.isDuplicate("Saranjith Krishnan"));
+		assertFalse(duplicateCheckService.isDuplicate("."));
+		assertTrue(duplicateCheckService.isDuplicate("Hello"));
+		
+	}
 }
