@@ -4,6 +4,7 @@ import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
 import org.springframework.stereotype.Component;
+import org.springframework.util.StringUtils;
 
 /**This class method provides services to check for duplicates
  * @author saranjithkrishnan
@@ -21,9 +22,9 @@ public class DuplicateCheckService {
 	 * @throws UnsupportedOperationException
 	 */
 	public boolean isDuplicate(String checkValue) throws UnsupportedOperationException{
-		if(checkValue == null) 
+		if(StringUtils.isEmpty(checkValue)) {
 			throw new UnsupportedOperationException("Please provide valid values");
-		
+		}
 		if(words.contains(checkValue)){
 			return true;
 		}else{

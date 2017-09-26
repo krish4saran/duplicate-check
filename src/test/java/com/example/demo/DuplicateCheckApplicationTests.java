@@ -46,6 +46,15 @@ public class DuplicateCheckApplicationTests {
 	public void testDuplicateCheckForNull(){
 		thrown.expect(UnsupportedOperationException.class);
 		thrown.expectMessage("Please provide valid values");
-		throw new UnsupportedOperationException("Please provide valid values");
+		duplicateCheckService.isDuplicate(null);
+		
+	}
+	
+	@Test
+	public void testDuplicateCheckForBlank(){
+		
+		thrown.expect(UnsupportedOperationException.class);
+		thrown.expectMessage("Please provide valid values");
+		duplicateCheckService.isDuplicate("");
 	}
 }
